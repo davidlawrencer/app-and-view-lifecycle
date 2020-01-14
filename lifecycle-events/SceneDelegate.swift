@@ -12,7 +12,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    //iPadOS allows for multiple scenes.
+    
+    //scene is an actual instance of a user's UI
+    //window is the object that handles how UI should look/work
+    //scene has a window in it, also coordinates how the UI is going to affect the "app state"
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -32,6 +36,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        // From here we might call functions that manage state for the application
+        // Here is a bad practice for state management
+        // NetworkHelper.main.getStuff() -> this loads stuff, which you can access (for example, by looking at that singleton's instance property NetworkHelper.main.stuff)
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
